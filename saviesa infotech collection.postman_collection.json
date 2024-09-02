@@ -1,0 +1,226 @@
+{
+	"info": {
+		"_postman_id": "6740c048-5687-4767-aab5-98ff0130bad6",
+		"name": "saviesa infotech collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25025027",
+		"_collection_link": "https://warped-station-731627.postman.co/workspace/saviesainfotech~9481ac74-4c5f-47a0-bb16-fe05298c485a/collection/25025027-6740c048-5687-4767-aab5-98ff0130bad6?action=share&source=collection_link&creator=25025027"
+	},
+	"item": [
+		{
+			"name": "authenticate",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\":\"vaibhav\",\n    \"lastName\":\"kumawat\",\n    \"email\":\"vaibhavkumawat003@gmail.com\",\n    \"phone\":\"8889805803\",\n    \"password\":\"12345\",\n    \"confirmPassword\":\"12345\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/v1/user/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"vaibhavkumawat001@gmail.com\",\n    \"password\":\"12345\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/v1/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "list users",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZDQwOGU4NDcyOGJmMjRkOTk1MWM0MSIsImRhdGUiOiIyMDI0LTA5LTAxVDA2OjMxOjQwLjgxOFoiLCJpYXQiOjE3MjUxNzIzMDB9.MCJIuJSjGxIlqnVqM3w9zxwdmHwTqUunlsF8yN7qgPY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/api/v1/user/list",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "send friend request",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZDU5MzkwZjA0MmY2N2JiMzM2MmQzYyIsImRhdGUiOiIyMDI0LTA5LTAyVDEwOjMxOjE1LjIyMFoiLCJpYXQiOjE3MjUyNzMwNzV9.9NVqoVsOMK1rnAHEBE42xhhFw1kYr36cIYF4zTapJ6A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\":\"66d59382f042f67bb3362d3a\" //reciever id \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/request-send",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"request-send"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "accept-reject request",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZDU5MzgyZjA0MmY2N2JiMzM2MmQzYSIsImRhdGUiOiIyMDI0LTA5LTAyVDEwOjM1OjEwLjcyMVoiLCJpYXQiOjE3MjUyNzMzMTB9.HUG-j4cpgD8z7ISi58Q68DTHm2M-22BNwMiK2rK4ohA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    // \"status\":\"accepted\",\n    \"id\":\"66d59390f042f67bb3362d3c\" // sender id  \n    ,\n    \"status\":\"rejected\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/update-request",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"update-request"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user details",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "delete friend request",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZDU1MWE1Y2ZkNDBmYTM4YmNiYzJlMSIsImRhdGUiOiIyMDI0LTA5LTAyVDA4OjMzOjUwLjY2MVoiLCJpYXQiOjE3MjUyNjYwMzB9.PdEQ9HTWdw0CmHS328-9FqU6B1xm2LX_V4GTiuXoaGo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/delete-request/66d5614c1bf04c34d9a56321",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"delete-request",
+						"66d5614c1bf04c34d9a56321"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
